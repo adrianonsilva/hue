@@ -131,6 +131,8 @@ thrift_version=7</br>
 
 ## - HDFS
 
+O HDFS é o sistema distribuído de arquivos onde os dados são amazenados nos datanode.
+
 - editar o arquivo pseudo-distributed.ini e acrescentar:
 
 webhdfs_url=http://master:50070/webhdfs/v1/
