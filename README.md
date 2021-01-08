@@ -23,12 +23,15 @@ O Hue está presente nas instalações Cloudera e nos serviços Hadoop dos prove
 A instalação do Hue será realizada usando a sequinte arquitetura:
 
 Cluster Hadoop (1 master  e 2 slaves)
-- master</br>
--- Hadoop, Yarn, Hue</br>
-- slave3</br>
--- Hdfs</br>
-- slave5</br>
--- Hdfs, Hive, MySql</br>
+
+* master
+	* Hadoop, Yarn, Hue
+
+* slave3
+	* Hdfs
+
+* slave5
+	* Hdfs, Hive, MySql
 
 - Ubuntu 20.10
 - Hadoop 2.6.4
@@ -49,20 +52,20 @@ Cluster Hadoop (1 master  e 2 slaves)
 ![Screenshot](/images/h06.jpg)
 
 ## - Instalar as dependências
-sudo apt-get update
+```sudo apt-get update```
 
-sudo apt-get install git ant gcc g++ libffi-dev libkrb5-dev libmysqlclient-dev libsasl2-dev libsasl2-modules-gssapi-mit libsqlite3-dev libssl-dev libxml2-dev libxslt-dev make maven libldap2-dev python-dev python-setuptools libgmp3-dev npn python3.8-dev python3-distutils
+```sudo apt-get install git ant gcc g++ libffi-dev libkrb5-dev libmysqlclient-dev libsasl2-dev libsasl2-modules-gssapi-mit libsqlite3-dev libssl-dev libxml2-dev libxslt-dev make maven libldap2-dev python-dev python-setuptools libgmp3-dev npn python3.8-dev python3-distutils```
 
 ## - download do código fonte
-git clone https://github.com/cloudera/hue.git
+```git clone https://github.com/cloudera/hue.git```
 
 ## - Python version
 Como valor usar a versão 3.8, é necessário definir a versão do ambiente</br>
-export PYTHON_VER=python3.8
+```export PYTHON_VER=python3.8```
 
 ## - Compilar 
-cd /home/hduser/downloads/hue
-make apps
+```cd /home/hduser/downloads/hue```</br>
+```make apps```
 
 ![Screenshot](/images/h07.jpg)
 
@@ -73,8 +76,8 @@ make apps
 ![Screenshot](/images/h10.jpg)
 
 ## - Start serviço
-cd hue</br>
-build/env/bin/hue runserver 0.0.0.0:8000</br>
+```cd hue```</br>
+```build/env/bin/hue runserver 0.0.0.0:8000```</br>
 
 ![Screenshot](/images/h11.jpg)
 
@@ -103,7 +106,7 @@ Em seguida vamos criar o usuário hduser, que é o usuário padrão criado para 
 Após a verificação que o serviço está funcionando, precisamos configurar as conexões para os componentes do cluster.
 
 - Editar arquivo de configuração</br>
-nano desktop/conf/pseudo-distributed.ini
+```nano desktop/conf/pseudo-distributed.ini```
 
 ![Screenshot](/images/h15.jpg)
 
@@ -159,19 +162,19 @@ webhdfs_url=http://master:50070/webhdfs/v1/
 ## - Start dos serviços
 
 - Hadoop</br>
-start-dfs.sh</br>
-start-yarn.sh</br>
+```start-dfs.sh```</br>
+```start-yarn.sh```</br>
 
 ![Screenshot](/images/h23.jpg)
 
 - Hive</br>
-hive --service metastore</br>
-hive --service hiveserver2</br>
+```hive --service metastore```</br>
+```hive --service hiveserver2```</br>
 
 ![Screenshot](/images/h24.jpg)
 
 - Hue</br>
-build/env/bin/hue runserver 0.0.0.0:8000</br>
+```build/env/bin/hue runserver 0.0.0.0:8000```</br>
 
 ![Screenshot](/images/h25.jpg)
 
