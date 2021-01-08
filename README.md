@@ -13,7 +13,7 @@ Hue é uma Web Interface para acesso aos componentes do cluster Hadoop.
 
 Permite realizar consultas através da interface web, permitindo centralizar o acesso aos componentes do cluster, sem necessidade de acessar cada interface cliente.
 
-O Hue está preswente nas instalações Cloudera e nos serviços Hadoop dos provedores de nuvem: Amazon AWS, Google Cloud Platform, and Microsoft Azure.
+O Hue está presente nas instalações Cloudera e nos serviços Hadoop dos provedores de nuvem: Amazon AWS, Google Cloud Platform, and Microsoft Azure.
 
 ![Screenshot](/images/h00.jpg)
 
