@@ -9,11 +9,22 @@
 <a id="link1"></a>
 ## 1. Descrição
 
-Hue é uma Web Interface para acesso aos componentes do cluster Hadoop.
+Hue é uma Web Interface para acesso aos componentes do ecossistema Hadoop.
 
-Permite realizar consultas através da interface web, permitindo centralizar o acesso aos componentes do cluster, sem necessidade de acessar cada interface cliente.
+Permite realizar operações através da interface web, permitindo  o acesso aos componentes do cluster, sem necessidade de acessar cada cliente, nem executar comandos, aumentando a produtividade do desenvolvedor.
+
+O aplicativos no Hue, como os editores do Hive e do Pig, dispensam a necessidade de fazer login no cluster para executar scripts interativamente usando o shell de cada aplicativo.
 
 O Hue está presente nas instalações Cloudera e nos serviços Hadoop dos provedores de nuvem: Amazon AWS, Google Cloud Platform, and Microsoft Azure.
+
+Features Presentes</br>
+- HDFS File Browser
+- Browser and Job Designer
+- Editor for Hive Query
+- Editor for Pig Query
+- Hadoop Shell Access
+- Workflows can access Oozie Interface
+- Editor for Hbase
 
 ![Screenshot](/images/h00.jpg)
 
@@ -28,7 +39,7 @@ Cluster Hadoop (1 master  e 2 slaves)
 	* Hadoop, Yarn, Hue
 
 * slave3
-	* Hdfs
+	* Hdfs, Hbase
 
 * slave5
 	* Hdfs, Hive, MySql
@@ -37,6 +48,7 @@ Cluster Hadoop (1 master  e 2 slaves)
 - Hadoop 2.6.4
 - Hive 2.3.7 
 - MySql 8.0.21
+- Hbase 1.2.0
 - Python 3.8.6
 
 ![Screenshot](/images/h01.jpg)
@@ -156,6 +168,17 @@ webhdfs_url=http://master:50070/webhdfs/v1/
 
 ![Screenshot](/images/h22.jpg)
 
+## - Hbase
+
+O Apache HBase é um banco de dados NoSQL colunar que permite operações de leitura e gravação em grandes datasets.
+
+- editar o arquivo pseudo-distributed.ini e acrescentar:</br>
+```[hbase]```</br>
+```hbase_clusters=(Cluster|slave3:9090)```</br>
+
+![Screenshot](/images/hbase01.jpg)
+
+
 <a id="link4"></a>
 ## 4. Hue Interface
 
@@ -172,6 +195,21 @@ webhdfs_url=http://master:50070/webhdfs/v1/
 ```hive --service hiveserver2```</br>
 
 ![Screenshot](/images/h24.jpg)
+
+- Hbase</br>
+```hbase-daemon.sh start thrift -p 9090 --infoport 9095```</br>
+```start-hbase.sh```</br>
+```hbase shell```</br>
+
+![Screenshot](/images/hbase02.jpg)
+
+![Screenshot](/images/hbase03.jpg)
+
+![Screenshot](/images/hbase04.jpg)
+
+![Screenshot](/images/hbase05.jpg)
+
+![Screenshot](/images/hbase06.jpg)
 
 - Hue</br>
 ```build/env/bin/hue runserver 0.0.0.0:8000```</br>
@@ -206,7 +244,21 @@ Interface Hue</br>
 
 ![Screenshot](/images/h32.jpg)
 
-Outros conectores a serem configurados, Jobs, Hbase, Pig, etc, dependendo da configuração do cluster.
+- Hbase</br>
+
+Scan na tabela employee</br>
+
+![Screenshot](/images/hbase07.jpg)
+
+![Screenshot](/images/hbase08.jpg)
+
+Interface Hue</br>
+
+![Screenshot](/images/hbase09.jpg)
+
+![Screenshot](/images/hbase10.jpg)
+
+Outros conectores a serem configurados, Jobs, Pig, etc, dependendo da configuração do cluster.
 
 <a id="link5"></a>
 ## 5. Links
@@ -217,3 +269,5 @@ https://gethue.com/
 Documentação</br>
 https://docs.gethue.com/
 
+Banco colunar</br>
+https://aws.amazon.com/pt/nosql/columnar/
