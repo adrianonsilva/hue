@@ -268,6 +268,3 @@ https://gethue.com/
 
 Documentação</br>
 https://docs.gethue.com/
-
-Banco colunar</br>
-https://aws.amazon.com/pt/nosql/columnar/
